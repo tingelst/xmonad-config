@@ -24,14 +24,14 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal = "/usr/bin/urxvt"
+myTerminal = "/usr/bin/xterm"
 
 
 ------------------------------------------------------------------------
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..9]
+myWorkspaces = ["1:term","2:web","3:code","4:vm","5:fm", "6:media"] ++ map show [6..9]
  
 
 ------------------------------------------------------------------------
@@ -58,8 +58,9 @@ myManageHook = composeAll
     , resource  =? "kdesktop"       --> doIgnore
     , className =? "MPlayer"        --> doFloat
     , resource  =? "skype"          --> doFloat
+    , resource  =? "konqueror"      --> doShift "5:fm"
     , className =? "VirtualBox"     --> doShift "4:vm"
-    , className =? "Xchat"          --> doShift "5:media"
+    , className =? "Xchat"          --> doShift "6:media"
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
 
@@ -87,7 +88,7 @@ myLayout = avoidStruts (
 -- Currently based on the ir_black theme.
 --
 myNormalBorderColor  = "#7c7c7c"
-myFocusedBorderColor = "#ffb6b0"
+myFocusedBorderColor = "#DC8CC4"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
@@ -99,14 +100,14 @@ tabConfig = defaultTheme {
     inactiveColor = "#000000"
 }
 
+-- Dark pastels
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#FFB6B0"
-
+xmobarTitleColor = "#DC8CC4"
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#CEFFAC"
+xmobarCurrentWorkspaceColor = "#60B48A"
 
 -- Width of the window border in pixels.
-myBorderWidth = 1
+myBorderWidth = 2
 
 
 ------------------------------------------------------------------------
