@@ -11,6 +11,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Util.Run(spawnPipe)
@@ -49,7 +50,7 @@ myWorkspaces = ["1:term","2:web","3:code","4:vm","5:fm", "6:media"] ++ map show 
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Chromium"       --> doShift "2:web"
+    [ className =? "Chromium-browser"       --> doShift "2:web"
     , resource  =? "desktop_window" --> doIgnore
     , className =? "Galculator"     --> doFloat
     , className =? "Gimp"           --> doFloat
@@ -79,7 +80,9 @@ myLayout = avoidStruts (
     Mirror (Tall 1 (3/100) (1/2)) |||
     tabbed shrinkText tabConfig |||
     Full |||
-    spiral (6/7)) |||
+    spiral (6/7) |||
+    ThreeCol 1 (3/100) (1/2) |||
+    ThreeColMid 1 (3/100) (1/2)) |||
     noBorders (fullscreenFull Full)
 
 
