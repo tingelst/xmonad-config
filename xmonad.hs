@@ -50,7 +50,7 @@ myWorkspaces = ["1:term","2:web","3:code","4:vm","5:fm", "6:media"] ++ map show 
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "Chromium-browser"       --> doShift "2:web"
+    [ className =? "Chromium"       --> doShift "2:web"
     , resource  =? "desktop_window" --> doIgnore
     , className =? "Galculator"     --> doFloat
     , className =? "Gimp"           --> doFloat
@@ -91,7 +91,8 @@ myLayout = avoidStruts (
 -- Currently based on the ir_black theme.
 --
 myNormalBorderColor  = "#7c7c7c"
-myFocusedBorderColor = "#DC8CC4"
+{-myFocusedBorderColor = "#DC8CC4"-}
+myFocusedBorderColor = "#d33682"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
@@ -103,11 +104,15 @@ tabConfig = defaultTheme {
     inactiveColor = "#000000"
 }
 
+-- Solarised
+xmobarTitleColor = "#d33682"
+xmobarCurrentWorkspaceColor = "#268bd2"
+
 -- Dark pastels
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#DC8CC4"
+{-xmobarTitleColor = "#DC8CC4"-}
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#60B48A"
+{-xmobarCurrentWorkspaceColor = "#60B48A"-}
 
 -- Width of the window border in pixels.
 myBorderWidth = 1
