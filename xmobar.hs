@@ -4,15 +4,8 @@
 
 Config {
     font = "xft:Fixed-8",
-    --bgColor = "#2c2c2c",
-    --fgColor = "#ffffff",
-    --fgColor = "#ffffff",
-    --
-    --Solarised colors
-    --dbgColor = "#586e75",
-    --fgColor = "#657b83",
-
-    position = Static { xpos = 0, ypos = 0, width = 1248, height = 16 },
+    position = Static { xpos = 0, ypos = 0, width = 1200, height = 16 },
+    --position = Static { xpos = 0, ypos = 0, width = 2480, height = 16 },
     lowerOnStart = True,
     commands = [
         Run Battery ["-t", "Batt: <left>%"] 10,
@@ -26,5 +19,5 @@ Config {
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %cpu%   %memory%   %eth0%   %battery%   %date%   %ENVA%" 
+    template = "%StdinReader% }{ %cpu%   %memory%   %eth0% %wlan0%   %battery%   %date%   %ENVA%" 
 }
